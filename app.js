@@ -1,9 +1,24 @@
 var app = require('express')();
 var http = require('http').Server(app);
 var io = require('socket.io')(http);
+const {URLSearchParams} = require('url')
+const fetch = require('node-fetch')
+let config = require("./config")
 
+let access = ""
 app.get('/', function(req, res) {
    res.sendfile('index.html');
+});
+app.get('/refresh', (req,res) => {
+   const params = new URLSearchParams();
+   const header = new URLSearchParams();
+   console.log(config.auth)
+   header.append("Authorization", config.auth)
+   params.append("grant_type", "refresh_token")
+   params.append("refresh_token", config.refresh)
+   fetch("https://accounts.spotify.com/api/token", {method: 'POST', body: params, headers:header})
+   .then(res => res.json())
+   .then((json) => {access = json.access_token; console.log(access)})
 });
 
 users = [];
