@@ -1,6 +1,6 @@
 let app = require('express')();
 let http = require('http').Server(app);
-;et io = require('socket.io')(http);
+let io = require('socket.io')(http);
 const {URLSearchParams} = require('url')
 const fetch = require('node-fetch')
 let config = require("./config")
