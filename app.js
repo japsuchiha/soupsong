@@ -1,7 +1,7 @@
 let app = require('express')();
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
-// let config = require("./config")
+let config = require("./config")
 var session = require('express-session')
 const {URLSearchParams} = require('url')
 const fetch = require('node-fetch')
