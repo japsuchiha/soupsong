@@ -10,12 +10,22 @@ body {
   height: 100%;
   margin: 0 auto;
 }
+body .logo {
+  height: 40vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+body .logo img {
+  width: 15%;
+  margin-bottom: -30%;
+}
 body .login {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
 }
 body p {
   font-family: "Gilroy";

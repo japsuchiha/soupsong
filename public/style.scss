@@ -11,12 +11,22 @@
 body {
     height: 100%;
     margin: 0 auto;
+    .logo {
+        height: 40vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img {
+            width: 15%;
+            margin-bottom: -30%;
+        }
+    }
     .login {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-        height: 100vh;
     }
     p {
         font-family: "Gilroy";
@@ -38,4 +48,6 @@ body {
         padding: 30px;
         border: none;
     }
+
+
 }
