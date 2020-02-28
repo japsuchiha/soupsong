@@ -4,7 +4,8 @@
   "description": "Central Queuer for streaming service",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./public/style.scss ./public/main.css"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,7 @@
     "express-session": "^1.17.0",
     "flask": "^0.2.10",
     "node-fetch": "^2.6.0",
+    "node-sass": "^4.13.1",
     "socket.io": "^2.3.0"
   }
 }

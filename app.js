@@ -1,4 +1,5 @@
 let app = require('express')();
+let express = require('express')
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 let config = require("./config")
@@ -8,15 +9,12 @@ const fetch = require('node-fetch')
 const MAX_TOKEN = 5;
 const NEW_USER_WAIT = 1000 * 60 * 10;
 const REGENERATE_TOKEN_S = 60 * 30;
-
+app.use(express.static("./public"))
 app.use(session({
    'secret': 'someggkeythisis'
  }))
 
 let access = ""
-app.get('/', function(req, res) {
-   res.sendfile('index.html');
-});
 
 app.get('/skip/', function(req, res) {
    var d = new Date();
@@ -53,6 +51,10 @@ app.get('/skip/', function(req, res) {
       res.send('Wait ' + NEW_USER_WAIT/60000 + ' mins');
    }
 });
+
+app.get('/main.css', function(req, res) {
+   res.sendFile(__dirname + "/" + "main.css");
+ });
 
 app.get('/refresh', (req,res) => {
    const params = new URLSearchParams();
