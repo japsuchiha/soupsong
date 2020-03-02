@@ -3,6 +3,8 @@ let express = require('express')
 let http = require('http').Server(app);
 let io = require('socket.io')(http);
 let config = require("./config")
+let fs = require('fs')
+let bodyParser = require("body-parser")
 var session = require('express-session')
 const {URLSearchParams} = require('url')
 const fetch = require('node-fetch')
@@ -13,9 +15,15 @@ app.use(express.static("./public"))
 app.use(session({
    'secret': 'someggkeythisis'
  }))
-
+ app.use(bodyParser.urlencoded({ extended: false }));
+ app.use(bodyParser.json()); 
 let access = ""
-
+app.post('/create', (req,res) => {
+   let html = req.body.html
+   let user = req.body.user
+   fs.writeFile(`./public/${user}.html`, html, (err) => console.log(err))
+   console.log(html)
+})
 app.get('/skip/', function(req, res) {
    var d = new Date();
    if (req.session.date)

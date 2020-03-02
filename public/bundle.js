@@ -25857,9 +25857,22 @@ socket.on('userExists', function(data) {
 socket.on('userSet', function(data) {
     console.log("het")
     user = data.username;
-    document.body.innerHTML = '<input type = "text" id = "message">\
+    let html_con = '<input type = "text" id = "message">\
     <button type = "button" name = "button" onclick = "sendMessage()">Send</button>\
     <div id = "message-container"></div>';
+    fetch("http://localhost:3000/create", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'mode': 'no-cors'
+        },
+        body: JSON.stringify({
+            html: html_con,
+            user: user
+        })
+    })
+    .then((resp) => resp.json())
+    .then((data) => console.log(data))
 });
 function sendMessage() {
     let msg = document.getElementById('message').value;
