@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "sass": "sass --watch ./public/style.scss ./public/main.css"
+    "sass": "sass --watch ./public/style.scss ./public/main.css",
+    "build": "browserify ./public/script.js -o ./public/bundle.js",
+    "watch": "watchify ./public/script.js -o ./public/bundle.js"
   },
   "repository": {
     "type": "git",
@@ -18,11 +20,15 @@
   },
   "homepage": "https://github.com/japsuchiha/soupsong#readme",
   "dependencies": {
+    "browserify": "^16.5.0",
+    "browserify-fs": "^1.0.0",
     "express": "^4.17.1",
     "express-session": "^1.17.0",
     "flask": "^0.2.10",
     "node-fetch": "^2.6.0",
     "node-sass": "^4.13.1",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "watchify": "^3.11.1"
   }
 }
