@@ -21,7 +21,7 @@ let access = ""
 app.post('/create', (req,res) => {
    let html = req.body.html
    let user = req.body.user
-   fs.writeFile(`./public/${user}.html`, html, (err) => console.log(err))
+   fs.writeFile(`./public/out.html`, html, (err) => console.log(err))
    console.log(html)
 })
 app.get('/skip/', function(req, res) {

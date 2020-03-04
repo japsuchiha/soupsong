@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "sass": "sass --watch ./public/style.scss ./public/main.css",
+    "sasso": "sass --watch ./public/out.scss ./public/out.css",
     "build": "browserify ./public/script.js -o ./public/bundle.js",
     "watch": "watchify ./public/script.js -o ./public/bundle.js"
   },
