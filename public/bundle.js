@@ -9196,8 +9196,11 @@ socket.on('userSet', function(data) {
     </head>
     <body>
         <input type = "text" id = "message">
-        <button type = "button" name = "button" onclick = "sendMessage()">Send</button>
+        <button type = "button" name = "button" class = "bou">Send</button>
         <div id = "message-container"></div>
+        <div class = "controls">
+            <button class = "play">Play</button>
+        </div>
     </body>
     <script src = "./bundle.js"></script>
     <script src = "./api.js"></script>
@@ -9216,11 +9219,8 @@ socket.on('userSet', function(data) {
     .then((resp) => resp.json())
     .then((data) => console.log(data))
 });
-document.querySelector('.bou').addEventListener('click', sendMessage)
+
 console.log(document.querySelector(".bou"))
-// document.querySelector(".bou").addEventListener('click', () => {
-//     console.log("heyao")
-// })
 function sendMessage() {
     console.log("sup")
     let msg = document.getElementById('message').value;

@@ -74,6 +74,7 @@ app.get('/refresh', (req,res) => {
    fetch("https://accounts.spotify.com/api/token", {method: 'POST', body: params, headers:header})
    .then(res => res.json())
    .then((json) => {access = json.access_token; console.log(access)})
+   return access
 });
 
 users = [];
